@@ -1,4 +1,4 @@
-# Fabrica de Softwares :metal:
+# Fabrica de Software :metal:
 Projeto de extensão acadêmica visa oferecer uma plataforma em que usuários podem solicitar a confecção de software. Será disponibilizado também a ferramenta para que o professor possa administrar toda a extensão.
 
 # Començando... :tada:
