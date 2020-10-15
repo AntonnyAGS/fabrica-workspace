@@ -2,7 +2,7 @@
 version: '3'
 
 services: 
-  mongodb:
+  mongodb-fabrica:
     image: bitnami/mongodb:latest
     networks: 
       - mongodb_network
@@ -25,12 +25,12 @@ services:
     working_dir: /app
     command: sh -c "yarn && yarn dev"
     depends_on: 
-      - mongodb
+      - mongodb-fabrica
     volumes: 
       - ./admin-api:/app
     environment:
       NODE_ENV: development
-      MONGO_URI: "mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@localhost:27017/${MONGODB_DATABASE}" 
+      MONGO_URI: "mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_ADDRESS}:27017/${MONGODB_DATABASE}" 
 
   admin-client:
     image: "node:lts-alpine"
