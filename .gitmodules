@@ -1,6 +1,8 @@
 [submodule "admin-api"]
 	path = admin-api
 	url = https://github.com/AntonnyAGS/admin-api.git
+	branch = main
 [submodule "admin-client"]
 	path = admin-client
 	url = https://github.com/AntonnyAGS/admin-client.git
+	branch = main
