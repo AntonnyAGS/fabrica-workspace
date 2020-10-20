@@ -6,3 +6,7 @@
 	path = admin-client
 	url = https://github.com/AntonnyAGS/admin-client.git
 	branch = main
+[submodule "user-api"]
+	path = user-api
+	url = https://github.com/AntonnyAGS/user-api.git
+	branch = main
