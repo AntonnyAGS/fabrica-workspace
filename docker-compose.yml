@@ -46,6 +46,23 @@ services:
       NODE_ENV: "local" 
       HOST: "0.0.0.0"
 
+  user-api:
+    image: "maven:3.5.3-jdk-8"
+    networks: 
+      - base_network
+      - mongodb_network
+    ports: 
+      - "8080:8080"
+    depends_on: 
+      - mongodb-fabrica
+    command: sh -c "mvn spring-boot:run"
+    restart: always
+    working_dir: /app
+    volumes:
+      - ./user-api:/app
+    environment: 
+      MONGO_URI: "mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_ADDRESS}:27017/${MONGODB_DATABASE}"
+
 networks:
   base_network:
   mongodb_network:
@@ -54,3 +71,4 @@ volumes:
   mongodb_data:
   admin-client:
   admin-api:
+  user-api:
