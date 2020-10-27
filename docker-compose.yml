@@ -46,7 +46,8 @@ services:
     environment:
       NODE_ENV: "local" 
       HOST: "0.0.0.0"
-      ADMIN_API_URL: ${ADMIN_API_URL}
+      API_URL: ${ADMIN_API_URL}
+      TOKEN: ${TOKEN}
 
   user-api:
     image: "maven:3.5.3-jdk-8"
