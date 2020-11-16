@@ -32,9 +32,14 @@ services:
       NODE_ENV: development
       MONGO_URI: "mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_ADDRESS}:27017/${MONGODB_DATABASE}" 
       SECRET_HASH: ${SECRET_HASH}
+      SECRET_REFRESH_HASH: ${SECRET_REFRESH_HASH}
+      EMAIL_USER: ${EMAIL_USER}
+      EMAIL_PASSWORD: ${EMAIL_PASSWORD}
+      EMAIL_HOST: ${EMAIL_HOST}
+      EMAIL_PORT: ${EMAIL_PORT}
 
   admin-client:
-    image: "node:lts-alpine"
+    image: "node:10-slim"
     networks:
       - base_network
     ports:
@@ -48,6 +53,8 @@ services:
       HOST: "0.0.0.0"
       API_URL: ${ADMIN_API_URL}
       TOKEN: ${TOKEN}
+      REFRESH_TOKEN: ${REFRESH_TOKEN}
+      SECRET_LOCAL_KEY: ${SECRET_LOCAL_KEY}
 
   user-api:
     image: "maven:3.5.3-jdk-8"
