@@ -52,8 +52,26 @@ services:
     volumes:
       - ./admin-client:/app
     environment:
-      NODE_ENV: "local" 
-      HOST: "0.0.0.0"
+      NODE_ENV: development
+      HOST: 0.0.0.0
+      API_URL: ${ADMIN_API_URL}
+      TOKEN: ${TOKEN}
+      REFRESH_TOKEN: ${REFRESH_TOKEN}
+      SECRET_LOCAL_KEY: ${SECRET_LOCAL_KEY}
+  
+  user-client:
+    image: "node:10-slim"
+    networks:
+      - base_network
+    ports:
+      - "3001:3000"
+    command: sh -c "yarn && yarn dev"
+    working_dir: /app
+    volumes:
+      - ./user-client:/app
+    environment:
+      NODE_ENV: development
+      HOST: 0.0.0.0
       API_URL: ${ADMIN_API_URL}
       TOKEN: ${TOKEN}
       REFRESH_TOKEN: ${REFRESH_TOKEN}
@@ -67,3 +85,4 @@ volumes:
   mongodb_data:
   admin-client:
   admin-api:
+  user-client:

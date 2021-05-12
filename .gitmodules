@@ -10,3 +10,6 @@
 	path = user-api
 	url = https://github.com/AntonnyAGS/user-api.git
 	branch = main
+[submodule "user-client"]
+	path = user-client
+	url = https://github.com/AntonnyAGS/user-client
